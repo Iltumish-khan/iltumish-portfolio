@@ -1,0 +1,39 @@
+name: Deploy Flutter Web Portfolio
+
+on:
+  push:
+    branches:
+      - main # Runs the script every time you push code to main
+
+permissions:
+  contents: write # Grants permission to create the hosting branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Get Dependencies
+        run: flutter pub get
+
+      - name: Build Web Production Files
+        run: flutter build web --release --base-href "/iltumish-portfolio/"
+
+      - name: Deploy to GitHub Pages Branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build/web # Deploys only the compiled web files
+          branch: gh-pages # The target hosting branch
