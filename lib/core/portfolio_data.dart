@@ -42,6 +42,14 @@ Strong experience in architecture design, API integrations, and leading mobile d
     "Play Store Deployment",
   ];
 
+  /// 🤖 AI Tools and Knowledge
+  static const String aiKnowledge =
+      "I use AI-assisted development tools to explore solutions, accelerate implementation, and review code. "
+      "I have knowledge of AI and large language model fundamentals, prompt engineering, and practical AI workflows, "
+      "with a focus on validating generated output for correctness and quality.";
+
+  static const List<String> aiTools = ["Claude", "Cursor", "OpenAI Codex"];
+
   /// 📦 Projects (Already added before)
   static const List<Map<String, String>> projects = [
     {

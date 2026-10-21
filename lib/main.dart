@@ -79,6 +79,31 @@ class HomePage extends StatelessWidget {
 
                 const SizedBox(height: 40),
 
+                /// 🤖 AI & MODERN DEVELOPMENT
+                const Text(
+                  "AI & Modern Development",
+                  style: TextStyle(fontSize: 26),
+                ),
+                const SizedBox(height: 10),
+                GlassContainer(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(PortfolioData.aiKnowledge),
+                      const SizedBox(height: 16),
+                      Wrap(
+                        spacing: 10,
+                        runSpacing: 10,
+                        children: PortfolioData.aiTools
+                            .map((tool) => Chip(label: Text(tool)))
+                            .toList(),
+                      ),
+                    ],
+                  ),
+                ).animate().fadeIn(duration: 600.ms),
+
+                const SizedBox(height: 40),
+
                 /// 📦 PROJECTS
                 const Text("Projects", style: TextStyle(fontSize: 26)),
                 const SizedBox(height: 20),
